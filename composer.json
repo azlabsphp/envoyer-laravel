@@ -1,0 +1,34 @@
+{
+    "name": "drewlabs/envoyer-laravel",
+    "description": "Envoyer client bindings for laravel framework",
+    "type": "library",
+    "require": {
+        "illuminate/support": "^8.0|^9.0|^10.0",
+        "drewlabs/envoyer": "^0.2.4"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Drewlabs\\Envoyer\\Laravel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "azandrew-sidoine",
+            "email": "asmyns.platonnas29@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers" : [
+                "Drewlabs\\Envoyer\\Laravel\\ServiceProvider"
+            ]
+        }
+    }
+}
