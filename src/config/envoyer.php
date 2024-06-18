@@ -21,7 +21,7 @@ return [
     |
     */
     'defaults' => [
-        'driver' => env('ENVOYER_DEFAULT_DRIVER', 'whatsapp')
+        'driver' => env('ENVOYER_DEFAULT_DRIVER')
     ],
 
     /*
@@ -103,5 +103,17 @@ return [
         'from' => [
             'name' => env('TEXT_MESSAGE_SENDER_NAME', env('ENVOYER_SENDER'))
         ]
+    ],
+    /*
+    |--------------------------------------------------------------------------
+    | Envoyer stack notification channel
+    |--------------------------------------------------------------------------
+    |
+    | This configuration defines a list of drivers that are concurrenlty used to
+    | send notification messages
+    |
+    */
+    'stack' => [
+        'drivers' => env('ENVOYER_STACK_DRIVERS', [])
     ]
 ];

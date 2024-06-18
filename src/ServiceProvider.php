@@ -41,6 +41,6 @@ class ServiceProvider extends AbstractServiceProvider
      */
     public function register()
     {
-        // TODO : Register application services
+        $this->mergeConfigFrom(__DIR__ . '/config/envoyer.php', 'envoyer');
     }
 }
