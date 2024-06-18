@@ -33,17 +33,19 @@ return [
     |
     */
     'mail' => [
-        'default' => env('MAIL_MAILER', 'smtp'),
+        'default' => env('MAIL_MAILER'),
         'drivers' => [
             'ses' => [
                 'key' => env('AWS_ACCESS_KEY_ID'),
                 'secret' => env('AWS_SECRET_ACCESS_KEY'),
                 'region' => env('AWS_REGION'),
             ],
+
             'sendgrid' => [
                 'key' => env('SENDGRID_API_KEY', env('MAIL_USERNAME')),
                 'secret' => env('SENDGRID_KEY_SECRET', env('MAIL_PASSWORD')),
             ],
+            
             'smtp' => [
                 'key' => env('MAIL_USERNAME'),
                 'secret' => env('MAIL_PASSWORD'),
@@ -64,8 +66,8 @@ return [
     | This options define envoyer text message notification driver configurations
     |
     */
-    'sms' => [
-        'default' => env('TEXT_MESSAGE_DRIVER', 'twilio'),
+    'text' => [
+        'default' => env('TEXT_MESSAGE_DRIVER'),
         'drivers' => [
             'smpp' => [
                 'key' => env('SMPP_API_KEY'),
@@ -73,26 +75,12 @@ return [
                 'port' => env('SMPP_PORT'),
                 'host' => env('SMPP_HOST'),
             ],
+
             'twilio' => [
                 'key' => env('TWILIO_API_KEY'),
                 'secret' => env('TWILIO_SECRET_KEY'),
             ],
-        ],
-        'from' => [
-            'name' => env('TEXT_MESSAGE_SENDER_NAME', env('ENVOYER_SENDER'))
-        ]
-    ],
-    /*
-    |--------------------------------------------------------------------------
-    | Envoyer Social networks configuration
-    |--------------------------------------------------------------------------
-    |
-    | This options define social networks notification driver configurations
-    |
-    */
-    'social' => [
-        'default' => env('SOCIAL_MESSAGE_DRIVER', 'whatsapp'),
-        'drivers' => [
+
             'whatsapp' => [
                 'key' => env('WHATSAPP_WEB_SDK_API_KEY'),
                 'secret' => env('WHATSAPP_WEB_SDK_KEY_SECRET'),
@@ -104,6 +92,7 @@ return [
             'name' => env('TEXT_MESSAGE_SENDER_NAME', env('ENVOYER_SENDER'))
         ]
     ],
+
     /*
     |--------------------------------------------------------------------------
     | Envoyer stack notification channel
