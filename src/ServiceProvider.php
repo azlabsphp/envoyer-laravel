@@ -25,9 +25,7 @@ class ServiceProvider extends AbstractServiceProvider
         // Configure stack driver for the notification
         // we do not override in case library user provides his or her own implementation of the stack driver
         DriverRegistryFacade::defineDriver(Drivers::STACK, function () {
-            /**
-             * @var Repository
-             */
+            /** @var Repository */
             $config = $this->app->make('config');
             $drivers = $config->get('envoyer.stack.drivers', []);
             return StackDriver::new(is_string($drivers) ? array_map(function ($item) {
