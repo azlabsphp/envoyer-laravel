@@ -18,12 +18,9 @@ class ServiceProvider extends AbstractServiceProvider
     public function boot()
     {
 
-        $this->publishes([
-            __DIR__ . '/config' => $this->app->basePath('config'),
-        ], 'envoyer');
+        $this->publishes([__DIR__ . '/config' => $this->app->basePath('config'), ], 'envoyer');
 
-        // Configure stack driver for the notification
-        // we do not override in case library user provides his or her own implementation of the stack driver
+        
         DriverRegistryFacade::defineDriver(Drivers::STACK, function () {
             /** @var Repository */
             $config = $this->app->make('config');
